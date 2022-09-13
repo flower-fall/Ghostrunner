@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float secondJumpSpeed = 5.0f;
     public float hookMoveSpeed = 20.0f;
     public float gravity = 9.8f;
+    public float catchGravity = 0.5f;   //扒墙时的下落速度
     public float speedLimit = 20.0f;
 
     public float groundCheckWidth = 0.8f;
@@ -53,7 +54,6 @@ public class PlayerController : MonoBehaviour
         if (psw) {
             psw.PlayerStickWallEvent += CatchWall;
         }
-        
     }
 
     // Start is called before the first frame update
@@ -305,14 +305,22 @@ public class PlayerController : MonoBehaviour
         }
         else if (f == -1) {
             LockSpeed(1, new Vector2(0, speedLockX.y));
+            if(isGround == false)
+            {
+                jumpCount = 1;
+            }
         }
         else if (f == 1) {
             LockSpeed(1, new Vector2(speedLockX.x, 0));
+            if (isGround == false)
+            {
+                jumpCount = 1;
+            }
         }
 
         if (facing == f && moveDirection * facing > 0) {
             motionState = MOTION_CATCHWALL;
-            LockSpeed(2, Vector2.zero);
+            LockSpeed(2, new Vector2(-0.5f, 0f));
         }
         else {
             motionState = MOTION_NORMAL;

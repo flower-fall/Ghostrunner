@@ -31,6 +31,8 @@ public class PlayerStickWall : MonoBehaviour
         wallCheckPoint.x += wallCheckOffset.x;
         wallCheckPoint.y += wallCheckOffset.y;
         wallCheckPoint.x += wallCheckInterval / 2;
+
+        //右边（0+0.5， 0） （0.1， 1.6）
         Collider2D colliderInfo = Physics2D.OverlapBox(wallCheckPoint, wallCheckSize, 0, LayerMask.GetMask("Ground"));
         if (colliderInfo != null) {
             if (PlayerStickWallEvent != null) {
@@ -41,6 +43,7 @@ public class PlayerStickWall : MonoBehaviour
             ++flag;
         }
 
+        //左边（0-0.5， 0） （0.1， 1.6）
         wallCheckPoint.x -= wallCheckInterval;
         colliderInfo = Physics2D.OverlapBox(wallCheckPoint, wallCheckSize, 0, LayerMask.GetMask("Ground"));
         if (colliderInfo != null) {

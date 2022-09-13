@@ -1005,7 +1005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motionState: 0
-  ememyMode: {fileID: 0}
+  isGround: 0
+  isWall: 0
+  enemyModel: {fileID: 338397396}
+  groundCheckPoint: {fileID: 1824415626}
   bullets: {fileID: 0}
   speedLockX: {x: 0, y: 0}
   speedLockY: {x: 0, y: 0}
@@ -1022,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707719434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.24, y: 0.21, z: 0}
+  m_LocalPosition: {x: 4.24, y: 4.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 338397396}
